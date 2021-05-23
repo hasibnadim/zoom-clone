@@ -13,11 +13,11 @@ app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use('/peerjs',peerServer)
 
-app.get("/", (req, res) => {
-  res.redirect("/" + uuidv4());
+app.get("/:user", (req, res) => {
+  res.redirect(`/${req.params.user}/${uuidv4()}`);
 });
-app.get("/:room", (req, res) => {
-  res.render("room", { roomID: req.params.room });
+app.get("/:user/:room", (req, res) => {
+  res.render("room", {userID:req.params.user, roomID: req.params.room });
 });
 
 io.on("connection", (socket) => {
