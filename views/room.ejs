@@ -9,31 +9,31 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/room.css">
     <title>Zoom-clone</title>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
     <script>
         const roomID=('<%= roomID  %>')
-        const userID=('<%= userID  %>')
+        const username=('<%= userID  %>')
     </script>
-     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
  
     <div class="main d-flex">
         <div class="d-flex flex-column main-left">
-            <div class="flex-grow-1 main-video d-flex justify-content-center align-items-center">  <div id="video-grid"></div> </div>
+            <div class="flex-grow-1 main-video d-flex justify-content-center main__leave_meeting align-items-center">  <div id="video-grid"></div> </div>
             <div class="main-controls d-flex justify-content-between">
                 <div class="main-controls-block d-flex">
-                    <div class="main-control-button d-flex flex-column justify-content-center align-items-center">
+                    <div onclick="muteUnmute()" class="main-control-button main__mute_button d-flex flex-column justify-content-center align-items-center">
                         <i class="fas fa-microphone "></i>
                         <span>Mute</span>
                     </div>
-                    <div class="main-control-button d-flex flex-column justify-content-center align-items-center">
+                    <div onclick="playStop()" class="main-control-button main__video_button d-flex flex-column justify-content-center align-items-center">
                         <i class="fas fa-video "></i>
                         <span>Stop Video</span>
                     </div>
                 </div>
                 <div class="main-controls-block d-flex">
-                    <div class="main-control-button d-flex flex-column justify-content-center align-items-center">
+                    <div onclick="security()" class="main-control-button main__security d-flex flex-column justify-content-center align-items-center">
                         <i class="fas fa-shield-alt"></i>
                         <span>Security</span>
                     </div>
@@ -48,7 +48,7 @@
                     
                  </div>
                  <div class="main-controls-block d-flex">
-                    <div class="main-control-button d-flex flex-column justify-content-center align-items-center">
+                    <div onclick="leave()" class="main-control-button d-flex flex-column justify-content-center align-items-center">
                         <span class="leave-meeting" >Leave Meeting</span>
                     </div>
                  

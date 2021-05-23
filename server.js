@@ -6,26 +6,35 @@ const io = require("socket.io")(Server);
 const {ExpressPeerServer} = require('peer')
 const peerServer = ExpressPeerServer(Server,{debug:true})
 
-
-const host = "http://localhost";
+const host = require("os").hostname();
 const port = 80;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
-app.use('/peerjs',peerServer)
 
+app.use('/peerjs',peerServer)
+app.get('/',(req,res)=>{
+  res.render('getinfo',{btn:"make New room"})
+})
 app.get("/:user", (req, res) => {
-  res.redirect(`/${req.params.user}/${uuidv4()}`);
+  res.redirect(`/${uuidv4()}/${req.params.user}`);
 });
-app.get("/:user/:room", (req, res) => {
-  res.render("room", {userID:req.params.user, roomID: req.params.room });
+app.get("/:room/:user", (req, res) => {
+  if(req.params.user){
+    res.render("room", {userID:req.params.user, roomID: req.params.room });
+  }
+  
 });
 
 io.on("connection", (socket) => {
   socket.on("join-room", (roomID,userID) => {
     socket.join(roomID);
     socket.to(roomID).emit("user-connected",userID);
-    socket.on('message',messge=>{
-      io.to(roomID).emit('createMessage',messge)
+    socket.on('message',(message,username)=>{
+      io.to(roomID).emit('createMessage',message,username)
+    })
+    socket.on('disconnect', () => {
+      console.log("dis")
+      socket.to(roomID).emit('user-disconnected', userID)
     })
   });
 });
