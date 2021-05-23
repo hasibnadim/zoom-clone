@@ -1,0 +1,52 @@
+
+video{
+    height: 200px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin: 1px;
+}
+.main{
+    height: 100vh;
+}
+.main-video{
+    background: #000;
+    overflow: auto;
+}
+.main-left{
+    flex: 0.8;
+}
+.main-right{
+    flex: 0.2;
+    background-color: #242324;
+    border-left: 1px solid #3d3d42;
+}
+.main-controls{
+    background-color: #1C1E20;
+    color: #d2d2d2;
+}
+.main-control-button{
+    padding: 8px 10px;
+    min-width: 80px;
+    cursor: pointer;
+}
+.main-control-button i{
+    font-size: 16px;
+}
+.main-control-button:hover{
+    background-color: #343434;
+    border-radius: 5px;
+}
+.leave-meeting{
+    color: #eb534b;
+}
+.main-msg-container{
+    padding: 22px 12px;
+    display: flex;
+}
+.main-msg-container input{
+flex-grow: 1;
+background-color: transparent;
+border: none;
+color: #f5f5f5;
+
+}
