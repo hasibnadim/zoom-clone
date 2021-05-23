@@ -4,7 +4,7 @@
 - Create a room id (ok)
 - Add the ability to view our own video (ok)
 - Add ability to allow others to stream their video (ok)
-- Add styling
-- Add the ability to create messate
-- Add mute button
-- Add Stope Video Button
+- Add styling (ok)
+- Add the ability to create messate (ok)
+- Add mute button (ok)
+- Add Stope Video Button (ok)
