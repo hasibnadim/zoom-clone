@@ -6,7 +6,7 @@ const io = require("socket.io")(Server);
 const {ExpressPeerServer} = require('peer')
 const peerServer = ExpressPeerServer(Server,{debug:true})
 
-const host = require("os").hostname();
+const host = "http://localhost";
 const port = 80;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
