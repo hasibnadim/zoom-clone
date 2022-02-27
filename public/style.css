@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Noto+Serif:ital@1&display=swap');
+.title {
+  font-family: 'Dosis', 'Noto Serif', sans-serif;
+}
+input {
+  font-family: 'Noto Serif', sans-serif;
+}

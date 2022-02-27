@@ -1,12 +1,11 @@
 {
   "name": "zoom-clone",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Zoom Clone",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start:dev": "nodemon server.js"
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
